@@ -10,6 +10,7 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float gravity = -9.8f;
     [SerializeField] private float jumpHeight = 1.5f;
+    private bool sprinting = false; // boolean is false by default on declaration
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +46,19 @@ public class PlayerMotor : MonoBehaviour
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
         }
+    }
+
+    public void Sprint()
+    {
+        sprinting = !sprinting;
+        if (sprinting)
+            speed = 8;
+        else
+            speed = 5;
+    }
+
+    public void Crouch()
+    { 
+    
     }
 }

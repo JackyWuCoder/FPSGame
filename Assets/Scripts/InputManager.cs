@@ -21,6 +21,8 @@ public class InputManager : MonoBehaviour
         /* when a onFoot.Jump is performed, we are using a callbackcontext(ctx)
          to call our motor.Jump() function. */
         onFoot.Jump.performed += ctx => motor.Jump();
+        onFoot.Sprint.performed += ctx => motor.Sprint();
+        onFoot.Crouch.performed += ctx => motor.Crouch();
     }
 
     void FixedUpdate()
