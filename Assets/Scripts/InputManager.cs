@@ -47,4 +47,9 @@ public class InputManager : MonoBehaviour
         // disable our OnFoot Action Map
         onFoot.Disable();
     }
+
+    public PlayerInput.OnFootActions GetOnFoot()
+    {
+        return onFoot;
+    }
 }
