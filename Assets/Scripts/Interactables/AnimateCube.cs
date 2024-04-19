@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class AnimateCube : Interactable
 {
-    Animator animator;
+    private Animator animator;
     private string startPrompt;
 
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<MeshRenderer>().material.color = Color.green;
         animator = GetComponent<Animator>();
         startPrompt = promptMessage;
     }

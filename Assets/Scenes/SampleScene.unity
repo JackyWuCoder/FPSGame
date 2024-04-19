@@ -3737,7 +3737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1ea256acbf6d43b0e75593abc69c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: 
+  promptMessage: Play Animation
 --- !u!65 &1364999386
 BoxCollider:
   m_ObjectHideFlags: 0
