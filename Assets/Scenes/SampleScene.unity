@@ -1700,6 +1700,7 @@ MonoBehaviour:
   promptMessage: Collect magic cube
   particle: {fileID: 4695061323025700381, guid: 7d447ce7e03789748b742fa58b4bb7d8,
     type: 3}
+  rotationSpeed: 1
 --- !u!65 &605909095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3027,6 +3028,7 @@ MonoBehaviour:
   - {r: 0.06753528, g: 1, b: 0, a: 0}
   - {r: 1, g: 0.94432175, b: 0, a: 0}
   - {r: 0, g: 0.9728527, b: 1, a: 0}
+  rotationSpeed: 1
 --- !u!65 &965314081
 BoxCollider:
   m_ObjectHideFlags: 0
