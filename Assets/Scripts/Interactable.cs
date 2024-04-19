@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
+    // Add or remove an InteractionEvent component to this game object.
+    private bool useEvents;
     // Message displayed to player when looking at an interactable
     [SerializeField] protected string promptMessage;
 
