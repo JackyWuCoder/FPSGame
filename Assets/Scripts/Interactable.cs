@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour
 {
     // Message displayed to player when looking at an interactable
-    [SerializeField] private string promptMessage;
+    [SerializeField] protected string promptMessage;
 
     public string GetPromptMessage()
     {
