@@ -1697,6 +1697,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58c95a066c8cdb4b82a0d798813af54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  promptMessage: Collect magic cube
+  particle: {fileID: 4695061323025700381, guid: 7d447ce7e03789748b742fa58b4bb7d8,
+    type: 3}
 --- !u!65 &605909095
 BoxCollider:
   m_ObjectHideFlags: 0
