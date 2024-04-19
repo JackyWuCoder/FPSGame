@@ -19,11 +19,15 @@ public class PlayerInteract : MonoBehaviour
     {
         // Create a ray at the center of the camera, shooting outwards
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        // Draws the ray from the origin towards the camera's direction with a given distance
         Debug.DrawRay(ray.origin, ray.direction * distance);
-        RaycastHit hitInfo; // Variable to store our collision information.
+        RaycastHit hitInfo; // Variable to store our collision information
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
-        { 
-        
+        {
+            if (hitInfo.collider.GetComponent<Interactable>() != null)
+            {
+                Debug.Log(hitInfo.collider.GetComponent<Interactable>().GetPromptMessage());
+            }
         }
     }
 }
