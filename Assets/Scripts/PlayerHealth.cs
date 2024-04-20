@@ -8,9 +8,9 @@ public class PlayerHealth : MonoBehaviour
     private float health;
     private float lerpTimer;
     private float maxHealth = 100f;
-    private float chipSpeed = 2f;
-    private Image frontHealthBar;
-    private Image backHealthBar;
+    [SerializeField] private float chipSpeed = 2f;
+    [SerializeField] private Image frontHealthBar;
+    [SerializeField] private Image backHealthBar;
 
 
     // Start is called before the first frame update
@@ -33,6 +33,17 @@ public class PlayerHealth : MonoBehaviour
     public void UpdateHealthUI()
     {
         Debug.Log(health);
+        float fillF = frontHealthBar.fillAmount;
+        float fillB = backHealthBar.fillAmount;
+        float hFraction = health / maxHealth;
+        if (fillB > hFraction)
+        {
+            frontHealthBar.fillAmount = hFraction;
+            backHealthBar.color = Color.red;
+            lerpTimer += Time.deltaTime;
+            float percentComplete = lerpTimer / chipSpeed;
+            backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
+        }
     }
 
     public void TakeDamage(float damage)
