@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityEditor;
 
-public class InteractableEditor : MonoBehaviour
+[CustomEditor(typeof(Interactable), true)]
+public class InteractableEditor : Editor
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnInspectorGUI()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Interactable interactable = (Interactable)target;
+        base.OnInspectorGUI();
+        if (interactable.useEvents)
+        {
+            if (interactable.GetComponent<InteractionEvent>() == null)
+                interactable.gameObject.AddComponent<InteractionEvent>();
+        }
+        else
+        {
+            // We are not using events. Remove the component
+            if (interactable.GetComponent<InteractionEvent>() != null)
+                DestroyImmediate(interactable.GetComponent<InteractionEvent>());
+        }
     }
 }
