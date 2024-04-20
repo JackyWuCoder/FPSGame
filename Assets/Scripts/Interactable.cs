@@ -14,6 +14,11 @@ public abstract class Interactable : MonoBehaviour
         return promptMessage;
     }
 
+    public void SetPromptMessage(string promptMessage)
+    {
+        this.promptMessage = promptMessage;
+    }
+
     // This function will be called from our player
     public void BaseInteract()
     {
