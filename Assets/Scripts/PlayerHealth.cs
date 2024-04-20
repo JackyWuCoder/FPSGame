@@ -28,6 +28,10 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(Random.Range(5, 10));
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            RestoreHealth(Random.Range(5, 10));
+        }
     }
 
     public void UpdateHealthUI()
@@ -42,13 +46,29 @@ public class PlayerHealth : MonoBehaviour
             backHealthBar.color = Color.red;
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / chipSpeed;
+            percentComplete *= percentComplete;
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
+        }
+        if (fillF < hFraction)
+        {
+            backHealthBar.color = Color.green;
+            backHealthBar.fillAmount = hFraction;
+            lerpTimer += Time.deltaTime;
+            float percentComplete = lerpTimer / chipSpeed;
+            percentComplete *= percentComplete;
+            frontHealthBar.fillAmount = Mathf.Lerp(fillF, backHealthBar.fillAmount, percentComplete);
         }
     }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
+        lerpTimer = 0f;
+    }
+
+    public void RestoreHealth(float healAmount)
+    {
+        health += healAmount;
         lerpTimer = 0f;
     }
 }
